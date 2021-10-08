@@ -1,11 +1,18 @@
 package com.qosan.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
+@Document(collection = "Articles")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Article {
 
+    @Id
     private String id;
     private LocalDateTime creationDate;
     private String signature;
